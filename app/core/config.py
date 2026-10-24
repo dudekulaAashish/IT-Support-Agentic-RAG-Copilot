@@ -2,7 +2,7 @@ from functools import lru_cache
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict 
 
-BASE_DIR = Path(__file__).resolve().parent()
+BASE_DIR = Path(__file__).resolve().parent
 
 class Settings(BaseSettings):
     app_name: str = "Enterprise IT Support Agentic RAG Copilot"
