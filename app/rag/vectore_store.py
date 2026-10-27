@@ -7,7 +7,7 @@ from app.core.config import get_settings
 settings = get_settings() 
 
 _embeddings = None 
-_vectorestore = None 
+_vectorstore = None 
 
 EMBEDDING_DIMENSIONS = {
     "text-embedding-3-small": 1536,
@@ -82,7 +82,6 @@ def ensure_index():
 
     return pc.Index(settings.pinecone_index_name)
 
-
 def get_vectorstore():
     global _vectorstore
     if _vectorstore is None:
@@ -94,10 +93,8 @@ def get_vectorstore():
         )
     return _vectorstore
 
-
 def get_retriever():
     return get_vectorstore().as_retriever(search_kwargs={"k": settings.top_k})
-
 
 def add_documents(chunks):
     store = get_vectorstore()
